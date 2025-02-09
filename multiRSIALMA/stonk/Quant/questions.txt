@@ -1,0 +1,4 @@
+My questions for quant
+- how to choose a timeframe? intraday vs weekly/monthly, fees
+- if intraday, should i scalp or look for big moves
+- metrics to aim for: eg sharpe, winrate, percentage gain daily etc

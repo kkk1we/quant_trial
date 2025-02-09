@@ -1,0 +1,8 @@
+for high volatility rsi can go up to 80
+stop loss is too tight
+profit taking is 0.8% too tight
+
+weakness of using rsi
+stop loss is function of underlying volatility
+stop loss (average of 10 day daily range X2) if it moves 5 a day then 10
+DEMARK
