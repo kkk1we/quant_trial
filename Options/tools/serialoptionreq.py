@@ -78,7 +78,7 @@ def write_to_csv(data, filename):
 us_holidays2025 = holidays.US(years=[2025])
 us_holidays2024 = holidays.US(years=[2024])
 # Step 2: Generate all business days (weekdays only)
-business_days = pd.date_range(start="2025-01-11", end="2025-01-25", freq="B")
+business_days = pd.date_range(start="2025-01-25", end="2025-02-06", freq="B")
 # Step 3: Convert holidays to pandas datetime format
 market_holidays = pd.to_datetime(list(us_holidays2025.keys()))  # Convert holiday dates
 print(market_holidays)
