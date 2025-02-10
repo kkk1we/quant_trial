@@ -1,0 +1,147 @@
+In trading and risk management, "Greeks" are key metrics that quantify the sensitivity of an option’s price to various factors such as price movements, volatility, and time decay. They are essential for both options traders and portfolio managers. Below is a detailed explanation of all major Greeks:
+
+---
+
+### **1. Delta (Δ) – Price Sensitivity**
+- **Definition:** Delta measures how much an option’s price will change in response to a $1 change in the underlying asset.
+- **Range:** Between **0 and 1 for calls**, **0 and -1 for puts**.
+- **Interpretation:**
+  - A **call option** with a delta of **0.5** means that if the underlying stock increases by $1, the option’s price will rise by $0.50.
+  - A **put option** with a delta of **-0.5** means that if the stock rises by $1, the option’s price will drop by $0.50.
+  - At-the-money (ATM) options have **delta ≈ 0.5 (calls) and -0.5 (puts)**.
+  - Deep in-the-money (ITM) options approach **delta ≈ 1 (calls) or -1 (puts)**.
+  - Out-of-the-money (OTM) options approach **delta ≈ 0**.
+
+---
+
+### **2. Gamma (Γ) – Delta Sensitivity**
+- **Definition:** Gamma measures how much delta changes for a $1 move in the underlying asset.
+- **Range:** Always positive for both calls and puts.
+- **Interpretation:**
+  - High gamma means delta is very sensitive to price movements, making the option riskier.
+  - ATM options have the highest gamma, meaning delta changes the most at this point.
+  - ITM or OTM options have lower gamma.
+  - A trader hedging with delta-neutral strategies must constantly adjust due to gamma.
+
+---
+
+### **3. Theta (Θ) – Time Decay**
+- **Definition:** Theta measures how much an option loses value per day due to the passage of time.
+- **Range:** Always **negative** for long options and **positive** for short options.
+- **Interpretation:**
+  - ATM options have the highest theta decay.
+  - As expiration nears, theta accelerates (especially for ATM options).
+  - Short options benefit from theta decay, while long options lose value over time.
+
+---
+
+### **4. Vega (ν) – Volatility Sensitivity**
+- **Definition:** Vega measures how much an option’s price will change for a 1% change in implied volatility.
+- **Range:** Always **positive** for both calls and puts.
+- **Interpretation:**
+  - Higher vega means an option is more sensitive to volatility.
+  - Long options (both calls and puts) gain value when volatility increases.
+  - Short options (both calls and puts) lose value when volatility increases.
+  - ATM options have the highest vega, while deep ITM or OTM options have lower vega.
+
+---
+
+### **5. Rho (ρ) – Interest Rate Sensitivity**
+- **Definition:** Rho measures how much an option’s price will change for a 1% change in interest rates.
+- **Range:** Positive for call options, negative for put options.
+- **Interpretation:**
+  - **Call options:** Benefit from rising interest rates (higher rho).
+  - **Put options:** Lose value when interest rates rise.
+  - Rho is generally **less important** than delta, gamma, or theta.
+
+---
+
+### **6. Lambda (Λ) – Leverage Sensitivity (Elasticity)**
+- **Definition:** Lambda measures the percentage change in an option’s price relative to a 1% change in the underlying asset.
+- **Interpretation:**
+  - High lambda means an option is more leveraged.
+  - It is useful for understanding the impact of leverage in an options trade.
+
+---
+
+### **7. Epsilon (ϵ) – Dividend Sensitivity**
+- **Definition:** Epsilon measures how an option’s price changes with respect to a change in dividends.
+- **Interpretation:**
+  - **Call options** lose value when dividends increase.
+  - **Put options** gain value when dividends increase.
+
+---
+
+### **8. Vanna – Delta and Volatility Interaction**
+- **Definition:** Vanna measures how much delta changes when implied volatility changes.
+- **Interpretation:**
+  - Important for traders managing volatility-driven positions.
+  - Long vega strategies (like long straddles) are affected by vanna.
+
+---
+
+### **9. Charm – Delta and Time Interaction**
+- **Definition:** Charm (or "delta decay") measures how much delta changes as time passes.
+- **Interpretation:**
+  - Significant for traders managing delta-neutral strategies.
+  - Helps predict how delta will shift even if the underlying price stays constant.
+
+---
+
+### **10. Speed – Gamma Sensitivity**
+- **Definition:** Speed measures how much gamma changes for a $1 move in the underlying asset.
+- **Interpretation:**
+  - High speed means gamma changes rapidly, making risk harder to hedge.
+  - Important for traders managing very short-term options.
+
+---
+
+### **11. Zomma – Gamma and Volatility Interaction**
+- **Definition:** Zomma measures how much gamma changes with changes in implied volatility.
+- **Interpretation:**
+  - Important for traders in highly volatile markets.
+
+---
+
+### **12. Color – Gamma and Time Interaction**
+- **Definition:** Color measures how gamma changes over time.
+- **Interpretation:**
+  - Helps predict how gamma will behave as expiration nears.
+
+---
+
+### **13. Ultima – Vega and Volatility Interaction**
+- **Definition:** Ultima measures how vega changes with implied volatility shifts.
+- **Interpretation:**
+  - Useful in extreme market conditions where volatility is highly unpredictable.
+
+---
+
+## **Summary of Greek Sensitivities**
+| Greek | Measures Sensitivity To | Importance |
+|-------|-------------------------|------------|
+| **Delta (Δ)** | Underlying price | Shows option’s price movement |
+| **Gamma (Γ)** | Delta | Shows how delta changes |
+| **Theta (Θ)** | Time | Measures time decay |
+| **Vega (ν)** | Implied volatility | Measures volatility impact |
+| **Rho (ρ)** | Interest rates | Shows impact of interest rates |
+| **Lambda (Λ)** | Leverage | Measures option leverage |
+| **Epsilon (ϵ)** | Dividends | Measures impact of dividends |
+| **Vanna** | Delta & volatility | Helps manage volatility exposure |
+| **Charm** | Delta & time | Measures how delta changes over time |
+| **Speed** | Gamma | Measures how gamma changes |
+| **Zomma** | Gamma & volatility | Measures gamma volatility sensitivity |
+| **Color** | Gamma & time | Measures gamma over time |
+| **Ultima** | Vega & volatility | Measures vega’s volatility response |
+
+---
+
+## **Key Takeaways**
+1. **Delta** is the most commonly used Greek and determines how an option moves with the stock.
+2. **Gamma** helps traders understand how delta changes and its risk.
+3. **Theta** is crucial for understanding time decay and is essential for short option strategies.
+4. **Vega** is important for volatility-sensitive trades like straddles.
+5. **Rho** is typically minor but important in environments with changing interest rates.
+6. **Advanced Greeks** (Vanna, Charm, Speed, etc.) are useful for professional traders managing complex portfolios.
+
+Would you like a practical example of how these Greeks interact in a trading strategy?
