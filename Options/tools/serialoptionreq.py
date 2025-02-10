@@ -2,6 +2,7 @@ import requests
 import csv
 import pandas as pd
 import os
+import holidays
 base_dir = os.path.dirname(__file__)  # Directory of the current script
 # Generate a date range from Jan 1, 2025, to Jan 10, 2025, with a daily interval
 
@@ -73,11 +74,23 @@ def write_to_csv(data, filename):
                 row["vega"],
                 row["rho"]
             ])
+# Step 1: Define US stock market holidays for 2025 only
+us_holidays2025 = holidays.US(years=[2025])
+us_holidays2024 = holidays.US(years=[2024])
+# Step 2: Generate all business days (weekdays only)
+business_days = pd.date_range(start="2025-01-11", end="2025-01-25", freq="B")
+# Step 3: Convert holidays to pandas datetime format
+market_holidays = pd.to_datetime(list(us_holidays2025.keys()))  # Convert holiday dates
+print(market_holidays)
+# Step 4: Exclude holidays from business days
+trading_days = business_days[~business_days.isin(market_holidays)]
+# Debugging: Print first 10 trading days and check if "2025-01-01" is present
+print(trading_days[:10])
+print("2025-01-01 in trading_days:", "2025-01-01" in trading_days.strftime("%Y-%m-%d"))
 
-dates = pd.date_range(start="2025-01-01", end="2025-01-10", freq="B")
-for date in dates:
+
+for date in trading_days:
     datestr = date.strftime("%Y-%m-%d")
     req_write_data('VX3LDRKN25J5R2RX',datestr,'NVDA')
 
 print('file created')
-
