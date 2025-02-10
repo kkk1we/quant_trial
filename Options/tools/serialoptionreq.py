@@ -4,7 +4,7 @@ import pandas as pd
 import os
 base_dir = os.path.dirname(__file__)  # Directory of the current script
 # Generate a date range from Jan 1, 2025, to Jan 10, 2025, with a daily interval
-dates = pd.date_range(start="2025-01-01", end="2025-01-10", freq="D")
+
 optiondata = []
 
 def req_write_data(apikey,date,ticker):
@@ -20,8 +20,8 @@ def req_write_data(apikey,date,ticker):
             call_option.append(optiondata[i])
         else:
             put_option.append(optiondata[i])
-    write_to_csv(call_option, os.path.join(base_dir, "../data/call.csv"))
-    write_to_csv(put_option, os.path.join(base_dir, "../data/put.csv"))
+    write_to_csv(call_option, os.path.join(base_dir, f"../data/c{date}.csv"))
+    write_to_csv(put_option, os.path.join(base_dir, f"../data/p{date}.csv"))
 
 
 # Write to CSV
@@ -74,10 +74,10 @@ def write_to_csv(data, filename):
                 row["rho"]
             ])
 
-# call_options = [row for row in data if row["type"].lower() == "call"]
-# put_options = [row for row in data if row["type"].lower() == "put"]
-
-req_write_data('VX3LDRKN25J5R2RX','2025-02-07','NVDA')
+dates = pd.date_range(start="2025-01-01", end="2025-01-10", freq="B")
+for date in dates:
+    datestr = date.strftime("%Y-%m-%d")
+    req_write_data('VX3LDRKN25J5R2RX',datestr,'NVDA')
 
 print('file created')
 
