@@ -88,11 +88,9 @@ def get_trading_days(startdate,enddate):
     # Step 4: Exclude holidays from business days
     global trading_days
     trading_days = business_days[~business_days.isin(market_holidays)]
-    # Debugging: Print first 10 trading days and check if "2025-01-01" is present
-    # print(trading_days[:10])
-    # print("2025-01-01 in trading_days:", "2025-01-01" in trading_days.strftime("%Y-%m-%d"))
-
-get_trading_days("2025-03-01","2025-03-10")
+    
+    
+get_trading_days("2025-03-01","2025-03-03")
 
 for date in trading_days:
     datestr = date.strftime("%Y-%m-%d")
