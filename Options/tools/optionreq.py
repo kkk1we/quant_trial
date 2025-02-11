@@ -1,5 +1,7 @@
 import requests
 import csv
+import holidays
+
 # replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
 url = 'https://www.alphavantage.co/query?function=HISTORICAL_OPTIONS&symbol=NVDA&date=2025-02-07&apikey=VX3LDRKN25J5R2RX'
 r = requests.get(url)
