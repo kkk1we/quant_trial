@@ -21,8 +21,8 @@ def req_write_data(apikey,date,ticker):
             call_option.append(optiondata[i])
         else:
             put_option.append(optiondata[i])
-    write_to_csv(call_option, os.path.join(base_dir, f"../data/c{date}.csv"))
-    write_to_csv(put_option, os.path.join(base_dir, f"../data/p{date}.csv"))
+    write_to_csv(call_option, os.path.join(base_dir, f"../data/calls/c{date}.csv"))
+    write_to_csv(put_option, os.path.join(base_dir, f"../data/puts/p{date}.csv"))
 
 
 # Write to CSV
