@@ -83,17 +83,18 @@ def get_trading_days(startdate,enddate):
     # Step 2: Generate all business days (weekdays only)
     business_days = pd.date_range(start=startdate, end=enddate, freq="B")
     # Step 3: Convert holidays to pandas datetime format
-    market_holidays = pd.to_datetime(list(us_holidays2025.keys()))  # Convert holiday dates
+    market_holidays = pd.to_datetime(list(us_holidays2024.keys()))  # Convert holiday dates
     print(market_holidays)
     # Step 4: Exclude holidays from business days
     global trading_days
     trading_days = business_days[~business_days.isin(market_holidays)]
     
     
-get_trading_days("2025-03-01","2025-03-03")
+get_trading_days("2024-11-10","2024-12-01")
 
 for date in trading_days:
     datestr = date.strftime("%Y-%m-%d")
     req_write_data('VX3LDRKN25J5R2RX',datestr,'NVDA')
+    print(date)
 
 print('file created')
