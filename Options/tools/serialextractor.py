@@ -43,7 +43,9 @@ def extract_contract_data(folder_path, target_contract):
     return pd.DataFrame(contract_data)
 
 # 📂 Define your folder path and contractID to extract
-folder_path = "C:/Quant/quant_trial/Options/data/puts"  # Change this to your actual data folder
+script_dir = os.path.dirname(os.path.abspath(__file__))
+folder_path = os.path.join(script_dir, "..", "data", "puts")
+
 target_contract = "NVDA250221P00120000"  # Example contractID to extract
 
 # 🔄 Extract contract data

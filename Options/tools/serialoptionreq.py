@@ -97,11 +97,11 @@ def get_trading_days(startdate,enddate):
     trading_days = business_days[~business_days.isin(market_holidays)]
     
 #05-10 -> 06-10
-get_trading_days("2024-04-25","2024-06-10")
+get_trading_days("2024-02-20","2024-03-20")
 
 for date in trading_days:
     datestr = date.strftime("%Y-%m-%d")
-    req_write_data(key8,datestr,'NVDA')
+    req_write_data(key1,datestr,'NVDA')
     print(date)
 
 print('file created')
