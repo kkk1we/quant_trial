@@ -9,6 +9,10 @@ key1 = "VX3LDRKN25J5R2RX"
 key2 = "S8FOMGX3NKTAIAE5"
 key3 = "N0DW464099YOXYKU"
 key4 = "E04UB1EK6HGCZMJ6"
+key5 = "TJXC12U8ZRUZKXM5"
+key6 = "75PE3Y1L869SRF40"
+key7 = "8PXIO5S9C053YTZA"
+key8 = "1GDJWQ66CS73CKXU"
 optiondata = []
 
 def req_write_data(apikey,date,ticker):
@@ -92,12 +96,12 @@ def get_trading_days(startdate,enddate):
     global trading_days
     trading_days = business_days[~business_days.isin(market_holidays)]
     
-#08-14, skipped 08-15 need to collect the data again
-get_trading_days("2024-08-14","2024-08-15")
+#05-10 -> 06-10
+get_trading_days("2024-04-25","2024-06-10")
 
 for date in trading_days:
     datestr = date.strftime("%Y-%m-%d")
-    req_write_data(key4,datestr,'NVDA')
+    req_write_data(key8,datestr,'NVDA')
     print(date)
 
 print('file created')
