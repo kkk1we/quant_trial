@@ -13,6 +13,14 @@ key5 = "TJXC12U8ZRUZKXM5"
 key6 = "75PE3Y1L869SRF40"
 key7 = "8PXIO5S9C053YTZA"
 key8 = "1GDJWQ66CS73CKXU"
+key9 = "GDHJ264B339W6WKB"
+key10 = "RCJK0DH5HDJ3QO60"  
+key11 = "GFJ2DIJ50GG0E1UN"
+key12 = "CDZ2NJ4QC63X0VGC"
+key13 = "J3V04A5ONHAFEYNT"
+key14 = "8LZPV7RD2FKB5KHP"
+key15 = "FJ5DVNE7A0QP9FGA"
+ 
 optiondata = []
 
 def req_write_data(apikey,date,ticker):
@@ -101,7 +109,7 @@ get_trading_days("2024-02-20","2024-03-20")
 
 for date in trading_days:
     datestr = date.strftime("%Y-%m-%d")
-    req_write_data(key1,datestr,'NVDA')
+    req_write_data(key9,datestr,'NVDA')
     print(date)
 
 print('file created')
