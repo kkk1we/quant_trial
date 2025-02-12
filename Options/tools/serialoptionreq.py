@@ -5,7 +5,10 @@ import os
 import holidays
 base_dir = os.path.dirname(__file__)  # Directory of the current script
 # Generate a date range from Jan 1, 2025, to Jan 10, 2025, with a daily interval
-
+key1 = "VX3LDRKN25J5R2RX"
+key2 = "S8FOMGX3NKTAIAE5"
+key3 = "N0DW464099YOXYKU"
+key4 = "E04UB1EK6HGCZMJ6"
 optiondata = []
 
 def req_write_data(apikey,date,ticker):
@@ -89,12 +92,12 @@ def get_trading_days(startdate,enddate):
     global trading_days
     trading_days = business_days[~business_days.isin(market_holidays)]
     
-    
-get_trading_days("2024-11-10","2024-12-01")
+#08-14, skipped 08-15 need to collect the data again
+get_trading_days("2024-08-14","2024-08-15")
 
 for date in trading_days:
     datestr = date.strftime("%Y-%m-%d")
-    req_write_data('VX3LDRKN25J5R2RX',datestr,'NVDA')
+    req_write_data(key4,datestr,'NVDA')
     print(date)
 
 print('file created')
