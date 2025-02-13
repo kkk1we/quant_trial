@@ -36,8 +36,8 @@ def req_write_data(apikey,date,ticker):
             call_option.append(optiondata[i])
         else:
             put_option.append(optiondata[i])
-    write_to_csv(call_option, os.path.join(base_dir, f"../data/calls/c{date}.csv"))
-    write_to_csv(put_option, os.path.join(base_dir, f"../data/puts/p{date}.csv"))
+    write_to_csv(call_option, os.path.join(base_dir, f"../data/calls/{ticker}/c{date}.csv"))
+    write_to_csv(put_option, os.path.join(base_dir, f"../data/puts/{ticker}/p{date}.csv"))
 
 
 # Write to CSV
@@ -105,11 +105,11 @@ def get_trading_days(startdate,enddate):
     trading_days = business_days[~business_days.isin(market_holidays)]
     
 #05-10 -> 06-10
-get_trading_days("2024-02-20","2024-03-20")
+get_trading_days("2024-01-01","2024-01-09")
 
 for date in trading_days:
     datestr = date.strftime("%Y-%m-%d")
-    req_write_data(key9,datestr,'NVDA')
+    req_write_data(key2,datestr,'NVDA')
     print(date)
 
 print('file created')

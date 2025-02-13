@@ -43,10 +43,11 @@ def extract_contract_data(folder_path, target_contract):
     return pd.DataFrame(contract_data)
 
 # 📂 Define your folder path and contractID to extract
+ticker = "NVDA"  
 script_dir = os.path.dirname(os.path.abspath(__file__))
-folder_path = os.path.join(script_dir, "..", "data", "puts")
+folder_path = os.path.join(script_dir, "..", "data", {ticker},"calls")  # Example folder path
 
-target_contract = "NVDA250221P00120000"  # Example contractID to extract
+target_contract = "NVDA250221C00120000"  # Example contractID to extract
 
 # 🔄 Extract contract data
 df_contract = extract_contract_data(folder_path, target_contract)
