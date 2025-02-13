@@ -107,12 +107,12 @@ def get_trading_days(startdate,enddate):
     trading_days = business_days[~business_days.isin(market_holidays)]
     
 #05-10 -> 06-10,20
-get_trading_days("2024-08-25","2024-09-24")
+get_trading_days("2024-04-07","2024-05-09")
 symbol = 'SPY'
 count = 0
 for date in trading_days:
     datestr = date.strftime("%Y-%m-%d")
-    req_write_data(key9,datestr,symbol)
+    req_write_data(key13,datestr,symbol)
     print(date)
     count +=1
     print(count)
