@@ -36,12 +36,14 @@ def req_write_data(apikey,date,ticker):
             call_option.append(optiondata[i])
         else:
             put_option.append(optiondata[i])
-    write_to_csv(call_option, os.path.join(base_dir, f"../data/calls/{ticker}/c{date}.csv"))
-    write_to_csv(put_option, os.path.join(base_dir, f"../data/puts/{ticker}/p{date}.csv"))
+    write_to_csv(call_option, os.path.join(base_dir, f"../data/{ticker}/calls/c{date}.csv"))
+    write_to_csv(put_option, os.path.join(base_dir, f"../data/{ticker}/puts/p{date}.csv"))
 
 
 # Write to CSV
 def write_to_csv(data, filename):
+    dir_path = os.path.dirname(filename)
+    os.makedirs(dir_path, exist_ok=True)
     with open(filename, "w", newline="") as file:
         writer = csv.writer(file)
         # Write header
@@ -98,18 +100,21 @@ def get_trading_days(startdate,enddate):
     # Step 2: Generate all business days (weekdays only)
     business_days = pd.date_range(start=startdate, end=enddate, freq="B")
     # Step 3: Convert holidays to pandas datetime format
-    market_holidays = pd.to_datetime(list(us_holidays2024.keys()))  # Convert holiday dates
+    market_holidays = pd.to_datetime(list(us_holidays2025.keys()))  # Convert holiday dates
     print(market_holidays)
     # Step 4: Exclude holidays from business days
     global trading_days
     trading_days = business_days[~business_days.isin(market_holidays)]
     
-#05-10 -> 06-10
-get_trading_days("2024-01-01","2024-01-09")
-
+#05-10 -> 06-10, 21
+get_trading_days("2025-01-10","2025-01-15")
+symbol = 'SPY'
+count = 0
 for date in trading_days:
     datestr = date.strftime("%Y-%m-%d")
-    req_write_data(key2,datestr,'NVDA')
+    req_write_data(key4,datestr,symbol)
     print(date)
+    count +=1
+    print(count)
 
 print('file created')
